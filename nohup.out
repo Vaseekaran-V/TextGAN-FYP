@@ -1,0 +1,125 @@
+Traceback (most recent call last):
+  File "main.py", line 13, in <module>
+    import config as cfg
+  File "/notebooks/config.py", line 175
+    samples_num)
+    ^
+IndentationError: unexpected indent
+job_id: 1, gpu_id: 0
+====================================================================================================
+> training arguments:
+>>> if_test: 0
+>>> run_model: leakgan
+>>> k_label: 2
+>>> dataset: image_coco
+>>> model_type: vanilla
+>>> loss_type: rsgan
+>>> mu_type: ragan
+>>> eval_type: bleu3
+>>> d_type: Ra
+>>> if_real_data: 1
+>>> cuda: 1
+>>> device: 0
+>>> devices: 0
+>>> shuffle: 0
+>>> gen_init: normal
+>>> dis_init: uniform
+>>> n_parent: 1
+>>> eval_b_num: 8
+>>> lambda_fq: 1.0
+>>> lambda_fd: 0.0
+>>> d_out_mean: True
+>>> freeze_dis: False
+>>> freeze_clas: False
+>>> use_all_real_fake: False
+>>> use_population: False
+>>> samples_num: 10000
+>>> vocab_size: 4683
+>>> mle_epoch: 8
+>>> clas_pre_epoch: 10
+>>> adv_epoch: 10
+>>> inter_epoch: 10
+>>> batch_size: 64
+>>> max_seq_len: 37
+>>> start_letter: 1
+>>> padding_idx: 0
+>>> gen_lr: 0.0015
+>>> gen_adv_lr: 0.0001
+>>> dis_lr: 0.01
+>>> clip_norm: 5.0
+>>> pre_log_step: 1
+>>> adv_log_step: 1
+>>> train_data: /notebooks/dataset/image_coco.txt
+>>> test_data: /notebooks/dataset/testdata/image_coco_test.txt
+>>> temp_adpt: exp
+>>> evo_temp_step: 1
+>>> temperature: 1
+>>> ora_pretrain: 1
+>>> gen_pretrain: 0
+>>> dis_pretrain: 0
+>>> adv_g_step: 2
+>>> rollout_num: 4
+>>> gen_embed_dim: 32
+>>> gen_hidden_dim: 32
+>>> goal_size: 16
+>>> step_size: 4
+>>> mem_slots: 1
+>>> num_heads: 2
+>>> head_size: 256
+>>> d_step: 3
+>>> d_epoch: 2
+>>> adv_d_step: 2
+>>> adv_d_epoch: 2
+>>> dis_embed_dim: 64
+>>> dis_hidden_dim: 64
+>>> num_rep: 64
+>>> use_nll_oracle: 1
+>>> use_nll_gen: 1
+>>> use_nll_div: 1
+>>> use_bleu: 1
+>>> use_self_bleu: 1
+>>> use_clas_acc: True
+>>> use_ppl: 0
+>>> log_file: log/log_0510_1742_14.txt
+>>> save_root: /notebooks/save/20220510/image_coco/leakgan_vanilla_dt-Ra_lt-rsgan_mt-ra_et-bleu3_sl37_temp1_lfd0.0_T0510_1742_14/
+>>> signal_file: run_signal.txt
+>>> tips: LeakGAN experiments
+====================================================================================================
+>>> Interleaved Round 0...
+>>> Stop by pre_signal! Skip to adversarial training...
+Starting Adversarial Training...
+Initial generator: BLEU-[2, 3, 4, 5] = [0.04, 0.017, 0.011, 0.008], NLL_gen = 8.4501, NLL_div = 8.4517, Self-BLEU-[2, 3, 4] = [0.113, 0.033, 0.018], [PPL-F, PPL-R] = 0
+-----
+ADV EPOCH 0
+-----
+[ADV-GEN] adv_mana_loss = -0.0189, adv_work_loss = 8.0124, BLEU-[2, 3, 4, 5] = [0.038, 0.016, 0.01, 0.008], NLL_gen = 8.429, NLL_div = 8.4512, Self-BLEU-[2, 3, 4] = [0.108, 0.031, 0.017], [PPL-F, PPL-R] = 0
+[ADV-DIS] d_step 0: d_loss = 0.3402, train_acc = 0.9996,
+Traceback (most recent call last):
+  File "main.py", line 169, in <module>
+    inst._run()
+  File "/notebooks/instructor/real_data/leakgan_instructor.py", line 92, in _run
+    self.train_discriminator(cfg.ADV_d_step, cfg.ADV_d_epoch, 'ADV')  # Discriminator
+  File "/notebooks/instructor/real_data/leakgan_instructor.py", line 185, in train_discriminator
+    d_loss, train_acc = self.train_dis_epoch(self.dis, dis_data.loader, self.dis_criterion,
+  File "/notebooks/instructor/real_data/instructor.py", line 121, in train_dis_epoch
+    self.optimize(optimizer, loss, model)
+  File "/notebooks/instructor/real_data/instructor.py", line 191, in optimize
+    loss.backward(retain_graph=retain_graph)
+  File "/opt/conda/lib/python3.8/site-packages/torch/tensor.py", line 195, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/opt/conda/lib/python3.8/site-packages/torch/autograd/__init__.py", line 97, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt
+job_id: 1, gpu_id: 0
+Traceback (most recent call last):
+  File "run/run_leakgan.py", line 147, in <module>
+    call([executable, scriptname] + args, env=my_env, cwd=rootdir)
+  File "/opt/conda/lib/python3.8/subprocess.py", line 342, in call
+    return p.wait(timeout=timeout)
+  File "/opt/conda/lib/python3.8/subprocess.py", line 1083, in wait
+    return self._wait(timeout=timeout)
+  File "/opt/conda/lib/python3.8/subprocess.py", line 1806, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/opt/conda/lib/python3.8/subprocess.py", line 1764, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
