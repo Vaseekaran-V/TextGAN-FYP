@@ -1,3 +1,11 @@
+# Work in progress...
+
+# GenTex - Final Year Research on generating text with GANs
+
+The following is my final year research codebase, where I researched on using GANs to generate text. The framework, TextGAN-PyTorch, was used to build the GAN models.
+
+
+(Original Codebase of the GAN framework)
 # TextGAN-PyTorch
 
 TextGAN is a PyTorch framework for Generative Adversarial Networks (GANs) based text generation models, including general text generation models and category text generation models. TextGAN serves as a benchmarking platform to support research on GAN-based text generation models. Since most GAN-based text generation models are implemented by Tensorflow, TextGAN can help those who get used to PyTorch to enter the text generation field faster.
